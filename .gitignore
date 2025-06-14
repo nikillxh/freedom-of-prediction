@@ -1,0 +1,41 @@
+# Root-level
+node_modules/
+.DS_Store
+*.log
+
+# Ignore image editors' temp files
+*.swp
+*.swo
+*.tmp
+
+# Backend
+/backend/node_modules/
+/backend/dist/
+/backend/build/
+/backend/*.log
+
+# TypeScript build output
+/backend/**/*.tsbuildinfo
+
+# Frontend
+/frontend/node_modules/
+/frontend/.next/
+/frontend/out/
+/frontend/.turbo/
+/frontend/coverage/
+/frontend/*.log
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.code-workspace
+
+# Environment files (if you add them)
+.env
+.env.local
+.env.*.local
+
