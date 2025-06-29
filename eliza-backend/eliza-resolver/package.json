@@ -27,6 +27,7 @@
     "@tavily/core": "0.0.2",
     "amqplib": "0.10.5",
     "better-sqlite3": "11.5.0",
+    "express": "^5.1.0",
     "fs": "0.0.1-security",
     "net": "1.0.2",
     "path": "0.12.7",
@@ -41,12 +42,38 @@
   "pnpm": {
     "overrides": {
       "onnxruntime-node": "1.20.0"
-    }
+    },
+    "ignoredBuiltDependencies": [
+      "@discordjs/opus",
+      "bigint-buffer",
+      "bufferutil",
+      "es5-ext",
+      "esbuild",
+      "ffmpeg-static",
+      "keccak",
+      "node-hid",
+      "node-llama-cpp",
+      "onnxruntime-node",
+      "protobufjs",
+      "puppeteer",
+      "secp256k1",
+      "sharp",
+      "sodium-native",
+      "usb",
+      "utf-8-validate",
+      "youtube-dl-exec"
+    ],
+    "onlyBuiltDependencies": [
+      "@elizaos/plugin-node",
+      "better-sqlite3",
+      "canvas",
+      "wtf_wikipedia"
+    ]
   },
   "devDependencies": {
+    "pm2": "5.4.3",
     "ts-node": "10.9.2",
     "tsup": "8.3.5",
-    "typescript": "5.6.3",
-    "pm2": "5.4.3" 
+    "typescript": "5.6.3"
   }
 }

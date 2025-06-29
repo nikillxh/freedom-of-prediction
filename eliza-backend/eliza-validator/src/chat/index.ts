@@ -1,21 +1,12 @@
-import { settings } from "@elizaos/core";
-import readline from "readline";
+import { elizaLogger, settings } from "@elizaos/core";
+import express from "express";
+import { Router } from "express";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-rl.on("SIGINT", () => {
-  rl.close();
-  process.exit(0);
-});
+// Create Express router
+const router = Router();
 
 async function handleUserInput(input, agentId) {
-  if (input.toLowerCase() === "exit") {
-    rl.close();
-    process.exit(0);
-  }
+  if (!input) return { error: "No input provided" };
 
   try {
     const serverPort = parseInt(settings.SERVER_PORT || "3000");
@@ -34,22 +25,99 @@ async function handleUserInput(input, agentId) {
     );
 
     const data = await response.json();
-    data.forEach((message) => console.log(`${"Agent"}: ${message.text}`));
+    return data;
   } catch (error) {
     console.error("Error fetching response:", error);
+    return { error: "Error fetching response" };
   }
 }
 
 export function startChat(characters) {
-  function chat() {
-    const agentId = characters[0].name ?? "Agent";
-    rl.question("You: ", async (input) => {
-      await handleUserInput(input, agentId);
-      if (input.toLowerCase() !== "exit") {
-        chat(); // Loop back to ask another question
+  const app = express();
+  app.use(express.json());
+
+  router.post("/chat", chatHandler);
+  app.use("/", router);
+
+  async function chatHandler(req, res) {
+    try {
+      const { marketName, options, deadline } = req.body;
+
+      if (!marketName || !Array.isArray(options) || !deadline) {
+        return res.status(400).json({
+          error: "Missing required fields: marketName, options[], deadline",
+        });
       }
-    });
+
+      const optionsJoined = options.join(", ");
+      const prompt = `Market: ${marketName}. Options: ${optionsJoined}. Deadline: ${deadline}.`;
+
+      const agentId = characters[0]?.name ?? "Agent";
+      const responseData = await handleUserInput(prompt, agentId);
+
+      const responses = Array.isArray(responseData)
+        ? responseData
+        : [responseData];
+
+      const texts = responses.map((m) => (m?.text || "").toUpperCase());
+      const isValid = texts.some((text) => text.startsWith("VALID"));
+
+      elizaLogger.info(`Agent ${agentId} response: ${texts.join(" | ")}`);
+      elizaLogger.info(
+        `Processed market: ${marketName}, options: ${optionsJoined}, deadline: ${deadline}. Valid: ${isValid}`
+      );
+
+      if (isValid) {
+        
+        const twitterText = `Processed market: ${marketName},\n options: ${optionsJoined},\n deadline: ${deadline}.`;
+
+        elizaLogger.info("Extracted Twitter post:", twitterText);
+
+        if (twitterText) {
+          try {
+            const resolverxPort = 4002;
+            const postResp = await fetch(
+              `http://localhost:${resolverxPort}/chat`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  marketName: marketName,
+                  options: options,
+                  deadline: deadline,
+                  text: twitterText,
+                  userId: "predictorx",
+                  userName: "predictorx",
+                }),
+              }
+            );
+
+            const postResult = await postResp.json();
+            elizaLogger.info("Forwarded post to xposter:", postResult);
+          } catch (postError) {
+            elizaLogger.error("Error sending to xposter:", postError);
+          }
+        } else {
+          elizaLogger.warn("VALID response received, but no Twitter post found.");
+        }
+      }
+
+      res.json({
+        agent: agentId,
+        responses: responses.map((m) => m.text || "No response"),
+      });
+    } catch (error) {
+      console.error("Error processing request:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
   }
 
-  return chat;
+  return function startServer(port = 4000) {
+    return app.listen(port, () => {
+      console.log(`Chat API server running on port ${port}`);
+      console.log(
+        `POST to http://localhost:${port}/chat with JSON: { "marketName": "...", "options": [...], "deadline": "..." }`
+      );
+    });
+  };
 }

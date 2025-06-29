@@ -126,6 +126,7 @@ const checkPortAvailable = (port: number): Promise<boolean> => {
   });
 };
 
+
 const startAgents = async () => {
   const directClient = new DirectClient();
   let serverPort = parseInt(settings.SERVER_PORT || "3000");
@@ -142,10 +143,15 @@ const startAgents = async () => {
   try {
     for (const character of characters) {
       await startAgent(character, directClient as DirectClient);
+
+      
+
     }
   } catch (error) {
     elizaLogger.error("Error starting agents:", error);
   }
+
+
 
   while (!(await checkPortAvailable(serverPort))) {
     elizaLogger.warn(`Port ${serverPort} is in use, trying ${serverPort + 1}`);
