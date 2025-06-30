@@ -107,7 +107,7 @@ export function startChat(characters) {
         isValid: isValid,
         responses: responses.map((m) => m.text || "No response")
       });
-      
+
     } catch (error) {
       console.error("Error processing request:", error);
       res.status(500).json({ error: "Internal server error" });
