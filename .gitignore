@@ -35,7 +35,23 @@ ehthumbs.db
 *.code-workspace
 
 # Environment files (if you add them)
+**/.env
 .env
 .env.local
 .env.*.local
 
+
+# some file for eliza, (didnt get time to sort)
+./backend/eliza/eliza-starter/node_modules
+./backend/eliza/eliza-starter/.env
+./backend/eliza/eliza-starter/dist/
+./backend/eliza/eliza-starter/db.sqlite
+./backend/eliza/eliza-starter/.idea
+./backend/eliza/eliza-starter/.tee-cloud
+./backend/eliza/eliza-starter/*.ts
+
+# genearl files for eliza
+**/dist
+**/build
+**/data
+**/cache

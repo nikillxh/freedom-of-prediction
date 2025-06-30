@@ -1,0 +1,52 @@
+[
+  {
+    "marketName": "Who will win the US election?",
+    "options": [
+      "Biden",
+      "Trump",
+      "Sam"
+    ],
+    "deadline": 1727832000,
+    "timestamp": 1751223940881
+  },
+  {
+    "marketName": "Who will win the next US election?",
+    "options": [
+      "Biden",
+      "Trump",
+      "Sam"
+    ],
+    "deadline": 1727832000,
+    "timestamp": 1751224380160
+  },
+  {
+    "marketName": "Who will win the next US election?",
+    "options": [
+      "Biden",
+      "Trump",
+      "Sam"
+    ],
+    "deadline": 1727832000,
+    "timestamp": 1751224734895
+  },
+  {
+    "marketName": "Who will win the next US election?",
+    "options": [
+      "Biden",
+      "Trump",
+      "Sam"
+    ],
+    "deadline": 1727832000,
+    "timestamp": 1751224918144
+  },
+  {
+    "marketName": "Who will win the 2026 US Election?",
+    "options": [
+      "Biden",
+      "Trump",
+      "Kennedy"
+    ],
+    "deadline": "2026-11-04",
+    "timestamp": 1751225052301
+  }
+]
