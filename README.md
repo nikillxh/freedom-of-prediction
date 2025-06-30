@@ -1,15 +1,24 @@
-# freedom-of-prediction
+# Freedom-of-prediction
 
 **Freedom of Prediction but not from Constitution**
+<img src="./pics/FOPlogo.jpeg" alt="Freedom of Prediction Logo" width="600" height="auto" />
 
-A decentralized prediction market platform with first ever quantum market implmentation with conditional prediction market and LMSR bonding curves
+A decentralized prediction market platform with **first ever quantum market** implmentation with conditional prediction market and **LMSR bonding curves**
 Key features include -
-- Integration with Eliza OS agents for autonomous market verification and resolution
-- Automated posting of market status and results to Twitter for public transparency
-- Use of Chainlink services to provide reliable data and automation, .
+- Integration with **Eliza OS** agents for autonomous market verification and resolution
+- Automated posting of market status and results to **Twitter** for public transparency
+- Use of **Chainlink** services to provide reliable data and automation, .
 
 
-![](./pics/FOPlogo.jpeg)
+<img src="./pics/fop_qm.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
+<img src="./pics/fop_1.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
+<img src="./pics/fop_graphs.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
+<img src="./pics/fop_coparison.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+  <img src="./pics/fop_fc.png" alt="Freedom of Prediction Flow Chart" width="48%" style="max-width: 400px;" />
+  <img src="./pics/fop_fc2.png" alt="Freedom of Prediction Flow Chart 2" width="48%" style="max-width: 400px;" />
+</div>
 
 ### Some links
 - [YouTube Demo Video](https://youtu.be/bgQiFNYzsFY)
@@ -22,7 +31,7 @@ ToDO
 
 # Backend - eliza agent
 
-![](./pics/eliza_workflow.png)
+<img src="./pics/eliza_workflow.png" alt="Eliza Workflow Diagram" width="600" height="auto" />
 
 ## How To Run
 
