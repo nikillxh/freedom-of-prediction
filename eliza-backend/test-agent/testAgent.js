@@ -47,17 +47,17 @@ function sendToValidator() {
                         {
                             marketName: "Who will win the 2026 US Election?",
                             options: ["Biden", "Trump", "Kennedy"],
-                            deadline: "2026-11-04"
+                            deadline: "820261104"
                         },
                         {
                             marketName: "Which team will win the 2025 ICC World Cup?",
                             options: ["India", "Australia", "England"],
-                            deadline: "2025-10-15"
+                            deadline: "720651015"
                         },
                         {
                             marketName: "Who will not win the Ballon d'Or 2025?",
                             options: ["Messi", "Ronaldo", "Mbappe"],
-                            deadline: "2025-12-01"
+                            deadline: "660251241"
                         }
                     ];
                     _i = 0, markets_1 = markets;
@@ -108,16 +108,16 @@ function sendToResolver() {
                             userName: "predictorx"
                         },
                         {
-                            marketName: "Who will win the 2024 US Presidential Election?",
+                            marketName: "Who will win the 2028 US Presidential Election?",
                             options: ["Joe Biden", "Donald Trump", "Robert F. Kennedy Jr."],
-                            deadline: "2024-11-05",
+                            deadline: "934763400",
                             userId: "predictorx",
                             userName: "predictorx"
                         },
                         {
                             marketName: "Winner of Euro 2024?",
                             options: ["France", "Spain", "Germany"],
-                            deadline: "2024-07-15",
+                            deadline: "634620034",
                             userId: "predictorx",
                             userName: "predictorx"
                         }
