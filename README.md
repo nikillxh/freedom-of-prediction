@@ -23,6 +23,10 @@ A decentralized prediction market platform featuring the **first ever implementa
   <img src="./pics/fop_fc2.png" alt="Freedom of Prediction Flow Chart 2" width="48%" style="max-width: 400px;" />
 </div>
 
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+<img src="./pics/fop_gt.png" alt="Market Comparison Analysis" width="500" height="auto" />
+</div>
+
 ### Some links
 - [YouTube Demo Video](https://youtu.be/bgQiFNYzsFY)
 - [Twitter Bot](https://x.com/predictor_85882)
