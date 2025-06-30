@@ -39,69 +39,118 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var node_fetch_1 = require("node-fetch");
 function sendToValidator() {
     return __awaiter(this, void 0, void 0, function () {
-        var res, data, err_1;
+        var markets, _i, markets_1, market, res, data, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
+                    markets = [
+                        {
+                            marketName: "Who will win the 2026 US Election?",
+                            options: ["Biden", "Trump", "Kennedy"],
+                            deadline: "2026-11-04"
+                        },
+                        {
+                            marketName: "Which team will win the 2025 ICC World Cup?",
+                            options: ["India", "Australia", "England"],
+                            deadline: "2025-10-15"
+                        },
+                        {
+                            marketName: "Who will not win the Ballon d'Or 2025?",
+                            options: ["Messi", "Ronaldo", "Mbappe"],
+                            deadline: "2025-12-01"
+                        }
+                    ];
+                    _i = 0, markets_1 = markets;
+                    _a.label = 1;
+                case 1:
+                    if (!(_i < markets_1.length)) return [3 /*break*/, 7];
+                    market = markets_1[_i];
+                    _a.label = 2;
+                case 2:
+                    _a.trys.push([2, 5, , 6]);
                     return [4 /*yield*/, (0, node_fetch_1.default)("http://localhost:4000/chat", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                                marketName: "Who will win the 2026 US Election?",
-                                options: ["Biden", "Trump", "Kennedy"],
-                                deadline: "2026-11-04"
-                            })
+                            body: JSON.stringify(market)
                         })];
-                case 1:
+                case 3:
                     res = _a.sent();
                     return [4 /*yield*/, res.json()];
-                case 2:
+                case 4:
                     data = _a.sent();
-                    console.log("\nValidator Agent Response:");
+                    console.log("\nValidator Response for market: ".concat(market.marketName));
                     console.log(data);
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 6];
+                case 5:
                     err_1 = _a.sent();
                     console.error("Validator Agent Error:", err_1);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 6];
+                case 6:
+                    _i++;
+                    return [3 /*break*/, 1];
+                case 7: return [2 /*return*/];
             }
         });
     });
 }
 function sendToResolver() {
     return __awaiter(this, void 0, void 0, function () {
-        var res, data, err_2;
+        var resolutions, _i, resolutions_1, resolution, res, data, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
+                    resolutions = [
+                        {
+                            marketName: "Who will win IPL 2026?",
+                            options: ["RCB", "MI", "CSK"],
+                            deadline: "47328957",
+                            userId: "predictorx",
+                            userName: "predictorx"
+                        },
+                        {
+                            marketName: "Who will win the 2024 US Presidential Election?",
+                            options: ["Joe Biden", "Donald Trump", "Robert F. Kennedy Jr."],
+                            deadline: "2024-11-05",
+                            userId: "predictorx",
+                            userName: "predictorx"
+                        },
+                        {
+                            marketName: "Winner of Euro 2024?",
+                            options: ["France", "Spain", "Germany"],
+                            deadline: "2024-07-15",
+                            userId: "predictorx",
+                            userName: "predictorx"
+                        }
+                    ];
+                    _i = 0, resolutions_1 = resolutions;
+                    _a.label = 1;
+                case 1:
+                    if (!(_i < resolutions_1.length)) return [3 /*break*/, 7];
+                    resolution = resolutions_1[_i];
+                    _a.label = 2;
+                case 2:
+                    _a.trys.push([2, 5, , 6]);
                     return [4 /*yield*/, (0, node_fetch_1.default)("http://localhost:4002/chat", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                                marketName: "Who will win the 2024 US Presidential Election?",
-                                options: ["Joe Biden", "Donald Trump", "Robert F. Kennedy Jr."],
-                                deadline: "2024-11-05",
-                                text: "📊 New Market: Who will win the 2024 US Presidential Election?\nOptions: Joe Biden, Donald Trump, Robert F. Kennedy Jr.\nDeadline: 2024-11-05",
-                                userId: "predictorx",
-                                userName: "predictorx"
-                            })
+                            body: JSON.stringify(resolution)
                         })];
-                case 1:
+                case 3:
                     res = _a.sent();
                     return [4 /*yield*/, res.json()];
-                case 2:
+                case 4:
                     data = _a.sent();
-                    console.log("\nResolver Agent Response:");
+                    console.log("\nResolver Response for market: ".concat(resolution.marketName));
                     console.log(data);
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [3 /*break*/, 6];
+                case 5:
                     err_2 = _a.sent();
                     console.error("Resolver Agent Error:", err_2);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 6];
+                case 6:
+                    _i++;
+                    return [3 /*break*/, 1];
+                case 7: return [2 /*return*/];
             }
         });
     });

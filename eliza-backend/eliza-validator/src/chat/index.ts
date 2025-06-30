@@ -75,9 +75,9 @@ export function startChat(characters) {
 
         if (twitterText) {
           try {
-            const resolverxPort = 4002;
+            const twitterPort = 4001;
             const postResp = await fetch(
-              `http://localhost:${resolverxPort}/chat`,
+              `http://localhost:${twitterPort}/chat`,
               {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -95,7 +95,7 @@ export function startChat(characters) {
             const postResult = await postResp.json();
             elizaLogger.info("Forwarded post to xposter:", postResult);
           } catch (postError) {
-            elizaLogger.error("Error sending to xposter:", postError);
+            // elizaLogger.error("Error sending to xposter:", postError);
           }
         } else {
           elizaLogger.warn("VALID response received, but no Twitter post found.");
@@ -104,8 +104,10 @@ export function startChat(characters) {
 
       res.json({
         agent: agentId,
-        responses: responses.map((m) => m.text || "No response"),
+        isValid: isValid,
+        responses: responses.map((m) => m.text || "No response")
       });
+      
     } catch (error) {
       console.error("Error processing request:", error);
       res.status(500).json({ error: "Internal server error" });

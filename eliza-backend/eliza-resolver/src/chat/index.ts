@@ -95,7 +95,7 @@ export function startChat(characters) {
     // Handle case where responseData might not be an array
     const responses = Array.isArray(responseData) ? responseData : [responseData];
     const texts = responses.map(m => (m?.text || "").toUpperCase());
-    elizaLogger.info(`Received response from agent ${agentId}:`, texts.join("  ,  "));
+    elizaLogger.info(`Received response from agent ${agentId}:`, texts.join("=---="));
          
     // Return the agent's response as JSON
     res.json({ 
