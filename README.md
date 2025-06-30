@@ -1,19 +1,22 @@
 # Freedom-of-prediction
 
-**Freedom of Prediction but not from Constitution**
+### **Freedom of Prediction but not from Constitution**
 <img src="./pics/FOPlogo.jpeg" alt="Freedom of Prediction Logo" width="600" height="auto" />
 
-A decentralized prediction market platform with **first ever quantum market** implmentation with conditional prediction market and **LMSR bonding curves**
-Key features include -
-- Integration with **Eliza OS** agents for autonomous market verification and resolution
-- Automated posting of market status and results to **Twitter** for public transparency
-- Use of **Chainlink** services to provide reliable data and automation, .
+## ⚛️ World's First Quantum Markets Implementation ⚛️
 
+A decentralized prediction market platform featuring the **first ever implementation of quantum markets** - a groundbreaking approach that leverages conditional probability markets and **LMSR bonding curves** to create multi-dimensional prediction scenarios.
 
-<img src="./pics/fop_qm.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
-<img src="./pics/fop_1.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
-<img src="./pics/fop_graphs.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
-<img src="./pics/fop_coparison.png" alt="Freedom of Prediction Logo" width="700" height="auto" />
+### Key Features
+- **Quantum Markets**: Revolutionary implementation allowing for interconnected, conditional outcome predictions
+- **Eliza OS Integration**: AI agents for autonomous market verification and resolution
+- **Social Media Integration**: Automated posting of market status and results to **Twitter** for public transparency
+- **Blockchain Oracle**: **Chainlink** services providing reliable data feeds and automation
+
+<img src="./pics/fop_qm.png" alt="Quantum Market Illustration" width="700" height="auto" />
+<img src="./pics/fop_1.png" alt="FOP Platform Interface" width="700" height="auto" />
+<img src="./pics/fop_graphs.png" alt="Market Probability Graphs" width="700" height="auto" />
+<img src="./pics/fop_coparison.png" alt="Market Comparison Analysis" width="700" height="auto" />
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
   <img src="./pics/fop_fc.png" alt="Freedom of Prediction Flow Chart" width="48%" style="max-width: 400px;" />
